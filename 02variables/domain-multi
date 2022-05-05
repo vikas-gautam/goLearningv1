@@ -1,0 +1,18 @@
+c1 - amazon
+c2 - tata
+c3 - fk
+
+openresty should hve intelligence on the basis of c id :
+challenge: 
+
+openresty + lua --> | los.lpdev.axisb.com | header (tenant header ) | existing los app pod skip | los tata
+
+tenant: mesh2
+tenant: mesh3
+
+los | vault --> properties 
+agreed 
+
+build + databag job + deployment  | los-mesh2.svc | los-tata  
+
+

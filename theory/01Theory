@@ -1,0 +1,167 @@
+#https://www.youtube.com/watch?v=yyUHQIec83I
+
+every code must belongs to package
+and code should have one entrypoint
+
+go.mod file required: make our go application into project
+   for that we need to initialize the project or module!
+   go mod init nameOfProject
+
+expected package: everthing is organised as packages
+   all our code must belong to package <package name>
+
+expected declaration: Print("")   \\ 1 main bcz one app will have only one entrypoint
+   go way of saying (compliler need entrypoint) where to start 
+   func main() {
+       here code
+   }
+
+undeclared name Print : needs to import package to which Print func belongs to 
+   import "fmt"
+   Go standard lib provides lot of core packages which u can import.
+
+
+Discovers mistake at compile time Not RUNTIME
+immediately assign value to var, otherwise it throws error to avoid type mismatches error (at compile time)
+
+syntactic sugar: doesnt add functionality that it didnt already have
+: replaces var and data type so excessive sugar is bad
+
+------------------------------------------------------------------------------------------------------------
+
+userName := "vikas"
+see reference doc 
+
+array and slices:
+
+earlier userdata in variables, but when multiple users are booking the tickets we need to store username of all 
+users in array.
+
+problems with array: 
+what if we dont know the size when creating it.may be one user books all the 50 tickets.
+not efficinet: having one value with size of 50 values.
+
+Slice in go like list bookins = []
+
+array without size defined.
+
+// TILL NOW WE ONLY HAVE ONE USER DOING BOOKING AT ONE TIME and app exits BUT assume it is a web application and multiple USERS
+// ARE DOING BOOKING SIMULTANEOUSLY then loops comes so that app should not exits 
+
+loops are used to control the application flows.
+
+ONLY HAVE ONE LOOP : for loop
+
+for {}  - infinite loop 
+for each  - iterating over list  // if we want onlt first name of each user
+
+"_, booking" blank identifier = to ignore variable you dont want to use 
+
+// WE HAVE USED INFINITE LOOPS AND USED CTRL + C TO EXIT THE APP
+
+if remaingTickets == 0 {
+   fmt.Println("Conference has been booked out, please try next time")
+   break
+}
+
+if else statement controls the flow of application so this is kind of decision tree.
+
+switch statement: usecase - conference held in 6 different cities and process is also different.
+
+mutliple else if in if statemnet not feasible 
+
+now the code has been increased too much in main(), so we need to clean it by breaking down the whole code in 
+smaller function.
+
+// fUNCTIONS: 
+
+U can return multiple values to main function from any function
+
+// Until now we have been working with 1 single file - main.go 
+// what if m writing complex code with multiple logics (e.g booking app, cart, whistlist)
+
+go program is organized in packages 
+a pakcage is collection of go files.  e.g main.go  // very imp
+
+// helper.go and main.go but need to run in a fashion go run main.go helper.go 
+
+scope of variables: where we creating and defining variables 
+
+//As of now we were having users info in bookings [vikas gautam anu bharti vishal gautam] and
+// email and no. of tickets we were not saving
+
+store values per individual
+
+"vikash gautam"
+
+firstName: vikash
+lastName: gautam
+tickets: 3
+email: vg@g.com
+
+Above is map: maps unique keys to value.
+
+Go cons: 
+map can have same datatype only 
+
+
+// alternative way of creating slice by using make function
+
+we need to define the initial size of slice
+make([]map[string]string, 0) 
+
+// how we can save different data of an entity like user, conference which hold fifferent types of data like
+
+dob: date 
+name: string
+noOfTickets: uint
+
+we will use struct (structure) 
+
+// create a type called UserData based on struct lke firstNAme,lastName 
+// in oops lang like java struct can be compared with lightweight classes which doesn;t support inheritance
+type keyword create a new type with name u specify type <nameOfType> 
+
+
+go routines - concurrency
+
+single thread execution : all the lines is being executed one by one which means if nayone line is taking
+10 sec or delay then all the code will delayed by 10sec.
+
+concurrecny : if 20 users booking tickets so 20 new threads should be there to process the booking and sendticket logic
+
+go : go routine is lightweight thread (GREEN THREAD ) managed by go runtime //main application flows remains continue and process 
+                                                        //rest code in background with another thread.
+
+synchorizing the Goroutines:
+
+problem we need to fix : main go routine doesnt wait for other go routines.
+
+concurrency another aspect: 
+
+other lang : no easy communication medium among threads.
+
+wg.Add(2)
+		go sendTicket(userTickets, firstName, lastName, email)
+		go doSomehtingelse
+
+wg is just a management to tell two threads are there but one thread doesnt know about aother thread
+whether it is working or out of market.
+so multiple go routines can actually talk to each other to know all that stuff via channels
+
+
+--------------------------------------------------------------------------------------------------
+
+Rest API
+
+
+
+
+
+
+
+
+
+
+
+
